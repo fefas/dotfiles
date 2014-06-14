@@ -9,3 +9,9 @@ I learned so much with it, but I prefer something simpler and more direct.
 So I worked in my `vimrc` version 0 and you can see and get it here.
 
 I'm still working in a version with more features and a better documentation.
+
+# Tips
+
+1. I store my vimrc file into my Dropbox directory and my ~/.vimrc is a link to
+   it. In this way, I can easier share my vim configurations between my
+   diferents devices.
