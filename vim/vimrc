@@ -52,6 +52,7 @@ set virtualedit=all             " to edit where there is no actual character
 "map Control+Up PageUp
 "map Control+Down PageDown
 "map Control+Q Esc
+command! BS  execute "buffers"
 
 " skip errors when I type :W or something like that
 command! W   execute "w"
@@ -63,7 +64,6 @@ command! Wa  execute "wa"
 command! WQA execute "wqa"
 command! WQa execute "wqa"
 command! Wqa execute "wqa"
-command! Bs  execute "buffers"
 
 " Syntax, Color and Font
 syntax on                       " enable syntax coloring
@@ -80,7 +80,7 @@ set guifont=MyFont\ for\ Powerline
 set expandtab         " spaces ubstead of tabs
 set tabstop=3         " a tab = four spaces
 set shiftwidth=3      " number of spaces for auto-indent
-set softtabstop=2     " a soft-tab of four spaces
+set softtabstop=3     " a soft-tab of four spaces
 set autoindent        " set on the auto-indent
 
 " Wildmenu
