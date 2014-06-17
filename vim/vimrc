@@ -23,6 +23,7 @@ Plugin 'tpope/vim-fugitive'               " admin git
 Plugin 'airblade/vim-gitgutter'           " show git repository changes
 Plugin 'altercation/vim-colors-solarized' " nice colorscheme
 Plugin 'scrooloose/syntastic'             " syntax checking
+Plugin 'Fefas/vim-twig'                   " twig template highlight
 
 " Ending Vundle
 call vundle#end()
