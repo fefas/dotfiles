@@ -14,14 +14,19 @@ I'm still working in a version with more features and a better documentation.
 
 ## Vundle
 
-I use vundle to manage vim plugins. To install, follow the steps:
+I use vundle to manage vim plugins. To install it, follow the steps:
 
 ```bash
 $ mkdir ~/.vim/bundle
 $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
-You will
+When you start vim first time, you will need to install all the plugins. Then,
+just tape:
+
+```bash
+:PluginInstall
+```
 
 # Tips
 
