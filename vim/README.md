@@ -28,6 +28,30 @@ just tape:
 :PluginInstall
 ```
 
+## Powerline-fonts
+
+To see arrows on the status bar powered by the plugin vim-airline, you will need
+to configurate the powerline-fonts (it was downloaded if you already did the
+`Vundle` section).
+
+First, check if the directory `~/.fonts/` exists. If not create it:
+
+```bash
+$ mkdir ~/.fonts/
+```
+
+Now link the downloaded fonts in `~/.fonts/` and reload fonts:
+
+```bash
+$ cd ~/.fonts/
+$ ln -s ~/.vim/bundle/powerline-fonts/ .
+$ fc-cache ~/.fonts/
+```
+
+For last, you will maybe have to change the font of your terminal. Go to `Edit >
+Profile Preferences > General > Fonts`. You can choose any font that contains
+powerline in the name.
+
 # Tips
 
 1. I store my vimrc file into my Dropbox directory and my ~/.vimrc is a link to

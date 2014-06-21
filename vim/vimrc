@@ -17,13 +17,13 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Setting up plugins
-Plugin 'Lokaltog/powerline'               " powerline
+Plugin 'Lokaltog/powerline-fonts'         " powerline fonts
 Plugin 'bling/vim-airline'                " a very better statusbar
 Plugin 'tpope/vim-fugitive'               " admin git
 Plugin 'airblade/vim-gitgutter'           " show git repository changes
 Plugin 'altercation/vim-colors-solarized' " nice colorscheme
 Plugin 'scrooloose/syntastic'             " syntax checking
-Plugin 'Fefas/vim-twig'                   " twig template highlight
+Plugin 'Fefas/vim-twig'                   " twig/volt template highlight
 
 " Ending Vundle
 call vundle#end()
@@ -75,7 +75,6 @@ set t_Co=256                    " 256 colors for the terminal
 let g:solarized_termcolors=256  " 256 colors for solarized plugin
 set background=dark             " I feel more comfortable in black layout
 colorscheme solarized           " Select colorscheme from plugin solarized
-set guifont=MyFont\ for\ Powerline
 
 " Tabs, space and wrapping
 set expandtab         " spaces ubstead of tabs
@@ -145,14 +144,6 @@ let g:airline#extensions#tabline#buffer_min_count=1
 "let g:airline#extensions#hunks#non_zero_only = 1
 "let g:airline#extensions#tabline#fnamemod = ':t'
 
-" add powerline if MAC OS
-if has("unix")
-   let s:uname = system("uname -s")
-   if s:uname == "Darwin"
-      source /Library/Python/2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
-   endif
-endif
-
 " Gitgutter
 let g:gitgutter_sign_column_always=1
 let g:gitgutter_realtime=0
@@ -163,62 +154,3 @@ highlight clear SignColumn
 let g:syntastic_aggregate_errors=1
 
 """ end Plugins }}}
-
-
-
-
-
-
-" <Leader> & <LocalLeader> mapping
-"let mapleader=','
-"let maplocalleader= ' '
-"
-"" Basic options
-"set go-=T                       " hide the toolbar
-"set go-=m                       " hide the menu
-"" The next two lines are quite tricky, but in Gvim, if you don't do this, if you
-"" only hide all the scrollbars, the vertical scrollbar is showed anyway
-"set go+=rRlLbh                  " show all the scrollbars
-"set go-=rRlLbh                  " hide all the scrollbars
-"set visualbell                  " turn on the visual bell
-"set fillchars+=vert:│           " better looking for windows separator
-"set hidden                      " hide the inactive buffers
-"set ruler                       " sets a permanent rule
-"set autoread                    " update a open file edited outside of Vim
-"set backspace=indent,eol,start  " defines the backspace key behavior
-"
-"
-"
-"
-"" Resize the divisions if the Vim window size changes
-"au VimResized * exe "normal! \<c-w>="
-"
-"" Multiple Windows
-"au VimResized * exe "normal! \<c-w>="
-"nnoremap <Leader>v <C-w>v
-"nnoremap <Leader>h <C-w>s
-"nnoremap <C-h> <C-w>h
-"nnoremap <C-j> <C-w>j
-"nnoremap <C-k> <C-w>k
-"nnoremap <C-l> <C-w>l
-"
-"" Show hidden chars
-"nmap <Leader>eh :set list!<CR>
-"set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
-"
-"" Cut/Paste
-"map <Leader>y "*y
-"map <Leader>p "*p
-"
-"" Autoload configuration when this file changes ($MYVIMRC)
-"autocmd! BufWritePost vimrc source %
-"
-"" Save as root
-"cmap w!! w !sudo tee % >/dev/null<CR>:e!<CR><CR>
-"
-"" Quick saving
-"nmap <silent> <Leader>w :update<CR>
-"
-"" Quick exiting without save
-"nnoremap <Leader>`` :qa!<CR>
-
