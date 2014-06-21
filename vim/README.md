@@ -34,13 +34,13 @@ To see arrows on the status bar powered by the plugin vim-airline, you will need
 to configurate the powerline-fonts (it was downloaded if you already did the
 `Vundle` section).
 
-First, check if the directory `~/.fonts/` exists. If not create it:
+First, check if the directory `~/.fonts/` exists. If not, create it:
 
 ```bash
 $ mkdir ~/.fonts/
 ```
 
-Now link the downloaded fonts in `~/.fonts/` and reload fonts:
+Now link the downloaded fonts in `~/.fonts/` and reload:
 
 ```bash
 $ cd ~/.fonts/
