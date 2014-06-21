@@ -10,6 +10,19 @@ So I worked in my `vimrc` version 0 and you can see and get it here.
 
 I'm still working in a version with more features and a better documentation.
 
+# Prerequisites
+
+## Vundle
+
+I use vundle to manage vim plugins. To install, follow the steps:
+
+```bash
+$ mkdir ~/.vim/bundle
+$ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+
+You will
+
 # Tips
 
 1. I store my vimrc file into my Dropbox directory and my ~/.vimrc is a link to
