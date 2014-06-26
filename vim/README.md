@@ -1,12 +1,12 @@
 # My `vimrc` file
 
-I started to use vim in all my works in the begin of 2013. So I started to be
-ansious to find good plugins to make my vim more powerfull. Then I used the vim
-configuration of joedicastro for one year until I get boring. It's a very very 
-nice `vimrc` file (https://github.com/joedicastro/dotfiles/tree/master/vim) and
-I learned so much with it, but I prefer something simpler and more direct.
+I started to use vim in all my works in the beginning of 2013. So I started to
+be ansious to find good plugins to make my vim more powerfull. Then I used the
+vim configuration of joedicastro for one year until I get boring. It's a very
+very nice `vimrc` file (https://github.com/joedicastro/dotfiles/tree/master/vim)
+and I learned so much with it, but I prefer something simpler and more direct.
 
-So I worked in my `vimrc` version 0 and you can see and get it here.
+So I did my `vimrc` version 0 and you can see and get it here.
 
 I'm still working in a version with more features and a better documentation.
 
@@ -21,8 +21,8 @@ $ mkdir ~/.vim/bundle
 $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
-When you start vim first time, you will need to install all the plugins. Then,
-just tape:
+When you start vim at first time, you need to install all the plugins by the
+follow command:
 
 ```bash
 :PluginInstall
