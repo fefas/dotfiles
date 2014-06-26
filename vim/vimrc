@@ -126,7 +126,13 @@ set ignorecase                  " ignore case letters
 "set foldmethod=marker
 
 " Quick saving
-nmap <silent> <Leader>w :update<CR>
+"nmap <silent> <Leader>w :update<CR>
+
+" Cut/Paste to/from the clipboard
+map <Leader>y "*y
+map <Leader>p "*p
+
+" }}}
 
 """ end Vim Setup }}}
 
