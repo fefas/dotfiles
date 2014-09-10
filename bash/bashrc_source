@@ -1,0 +1,8 @@
+#
+# Este arquivo deve ser inserido no .bashrc com o comando source
+
+# Colors
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+export TERM="xterm-color"
+PS1="\[\033[33m\]\u@\h\[\033[1;37m\]:\w$ \[\033[0m\]"
