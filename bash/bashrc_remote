@@ -1,0 +1,16 @@
+# ------------------------------------------------------------------------------
+# Este arquivo deve ser inserido no .bashrc com o comando source
+
+# ------------------------------------------------------------------------------
+# Colors
+
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+export TERM="xterm-color"
+
+# Coloca cor diferente dependendo se o usuário é root ou não
+if [ "`id -u`" -eq 0 ]; then
+   PS1="\[\033[31m\]\u@\h \[\033[0;37m\]\w \[\033[1;39m\]$ \[\033[0m\]"
+else
+   PS1="\[\033[36m\]\u@\h \[\033[0;37m\]\w \[\033[1;39m\]$ \[\033[0m\]"
+fi
