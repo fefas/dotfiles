@@ -43,12 +43,15 @@ Plugin 'gmarik/Vundle.vim'
 " Setting up plugins
 Plugin 'Lokaltog/powerline-fonts'         " powerline fonts
 Plugin 'bling/vim-airline'                " a very better statusbar
+
 Plugin 'tpope/vim-fugitive'               " admin git
 Plugin 'airblade/vim-gitgutter'           " show git repository info
+
 Plugin 'flazz/vim-colorschemes'           " colorschemes
 Plugin 'ntpeters/vim-better-whitespace'   " detect whitespace at line end
+
 Plugin 'scrooloose/syntastic'             " syntax checking
-Plugin 'evidens/vim-twig'                 " twig syntax
+Plugin 'etaoins/vim-volt-syntax'          " volt syntax
 Plugin 'groenewege/vim-less'              " less syntax
 
 " Ending Vundle
@@ -75,11 +78,6 @@ set virtualedit=all             " to edit where there is no actual character
 
 " Mapping and command
 :map <F2> :echo 'Current time is ' . strftime('%c')<CR>
-"map Control+B buffer lista
-"map Control+Up PageUp
-"map Control+Down PageDown
-"map Control+Q Esc
-command! BS execute "buffers"
 
 " Skip errors when I type :W or something like that
 command! W   execute "w"
@@ -98,15 +96,22 @@ set cursorline                  " highlight the line under the cursor
 set textwidth=80                " text limit (It's not a color setting, I know)
 set colorcolumn=81              " set a visual text limit column
 set t_Co=256                    " 256 colors for the terminal
-"let g:solarized_termcolors=256  " 256 colors for solarized plugin
 colorscheme seoul256            " select colorscheme
 
 " Tabs, space and wrapping
 set expandtab         " spaces ubstead of tabs
-set tabstop=3         " a tab = four spaces
+set tabstop=3         " a tab = three spaces
 set shiftwidth=3      " number of spaces for auto-indent
 set softtabstop=3     " a soft-tab of four spaces
 set autoindent        " set on the auto-indent
+
+" Sets different indent width for specifics files type
+filetype plugin indent on
+au BufNewFile,BufRead *.html  setlocal softtabstop=2 shiftwidth=2 tabstop=2 autoindent
+au BufNewFile,BufRead *.volt  setlocal softtabstop=2 shiftwidth=2 tabstop=2 autoindent
+au BufNewFile,BufRead *.css   setlocal softtabstop=2 shiftwidth=2 tabstop=2 autoindent
+au BufNewFile,BufRead *.lessc setlocal softtabstop=2 shiftwidth=2 tabstop=2 autoindent
+au BufNewFile,BufRead *.lessc setlocal softtabstop=4 shiftwidth=4 tabstop=4 autoindent
 
 " Wildmenu
 set wildmenu
@@ -147,12 +152,6 @@ set hlsearch                    " highlight search results
 set smartcase                   " smart case ignore
 set ignorecase                  " ignore case letters
 
-" Folding
-"set foldmethod=marker
-
-" Quick saving
-"nmap <silent> <Leader>w :update<CR>
-
 " Cut/Paste to/from the clipboard
 map <Leader>y "*y
 map <Leader>p "*p
@@ -181,10 +180,16 @@ let g:gitgutter_realtime=0
 let g:gitgutter_eager=0
 highlight clear SignColumn
 
+" Better whitespace
+highlight ExtraWhitespace ctermbg=196;
+
 " Syntastic
 let g:syntastic_aggregate_errors=1
 
-" Better whitespace
-highlight ExtraWhitespace ctermbg=196;
+" HTML5
+"let g:html5_event_handler_attributes_complete = 0
+"let g:html5_rdfa_attributes_complete = 0
+"let g:html5_microdata_attributes_complete = 0
+"let g:html5_aria_attributes_complete = 0
 
 """ end Plugins }}}
