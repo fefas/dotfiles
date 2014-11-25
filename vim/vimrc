@@ -46,6 +46,7 @@ Plugin 'bling/vim-airline'                " a very better statusbar
 Plugin 'tpope/vim-fugitive'               " admin git
 Plugin 'airblade/vim-gitgutter'           " show git repository info
 Plugin 'flazz/vim-colorschemes'           " colorschemes
+Plugin 'ntpeters/vim-better-whitespace'   " detect whitespace at line end
 Plugin 'scrooloose/syntastic'             " syntax checking
 Plugin 'evidens/vim-twig'                 " twig syntax
 Plugin 'groenewege/vim-less'              " less syntax
@@ -182,5 +183,8 @@ highlight clear SignColumn
 
 " Syntastic
 let g:syntastic_aggregate_errors=1
+
+" Better whitespace
+highlight ExtraWhitespace ctermbg=196;
 
 """ end Plugins }}}
