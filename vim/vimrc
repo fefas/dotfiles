@@ -1,8 +1,32 @@
 "
 "  A vimrc to make your vim powerful and as simple as possible.
 "
-" Author: Fefas(Felipe Viviani Martins)
-" GitHub: https://github.com/Fefas
+" Author:  Felipe Martins [Fefas] (eufefas@gmail.com)
+" GitHub:  https://github.com/Fefas/dotfiles/blob/master/vim/vimrc
+" License: MIT
+"
+" Copyright (c) 2014 Felipe Martins
+"
+" MIT License
+"
+" Permission is hereby granted, free of charge, to any person obtaining
+" a copy of this software and associated documentation files (the
+" "Software"), to deal in the Software without restriction, including
+" without limitation the rights to use, copy, modify, merge, publish,
+" distribute, sublicense, and/or sell copies of the Software, and to
+" permit persons to whom the Software is furnished to do so, subject to
+" the following conditions:
+"
+" The above copyright notice and this permission notice shall be
+" included in all copies or substantial portions of the Software.
+"
+" THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+" EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+" MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+" NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+" LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+" OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+" WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 "
 
 """ Vundle {{{
@@ -20,10 +44,11 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Lokaltog/powerline-fonts'         " powerline fonts
 Plugin 'bling/vim-airline'                " a very better statusbar
 Plugin 'tpope/vim-fugitive'               " admin git
-Plugin 'airblade/vim-gitgutter'           " show git repository changes
-Plugin 'altercation/vim-colors-solarized' " nice colorscheme
+Plugin 'airblade/vim-gitgutter'           " show git repository info
+Plugin 'flazz/vim-colorschemes'           " colorschemes
 Plugin 'scrooloose/syntastic'             " syntax checking
-Plugin 'Fefas/vim-twig'                   " twig/volt template highlight
+Plugin 'evidens/vim-twig'                 " twig syntax
+Plugin 'groenewege/vim-less'              " less syntax
 
 " Ending Vundle
 call vundle#end()
@@ -53,9 +78,9 @@ set virtualedit=all             " to edit where there is no actual character
 "map Control+Up PageUp
 "map Control+Down PageDown
 "map Control+Q Esc
-command! BS  execute "buffers"
+command! BS execute "buffers"
 
-" skip errors when I type :W or something like that
+" Skip errors when I type :W or something like that
 command! W   execute "w"
 command! Q   execute "q"
 command! WQ  execute "wq"
@@ -69,12 +94,11 @@ command! Wqa execute "wqa"
 " Syntax, Color and Font
 syntax on                       " enable syntax coloring
 set cursorline                  " highlight the line under the cursor
-set textwidth=80                " Text limit (It's not a color setting, I know)
-set colorcolumn=81              " Set a visual text limit column
+set textwidth=80                " text limit (It's not a color setting, I know)
+set colorcolumn=81              " set a visual text limit column
 set t_Co=256                    " 256 colors for the terminal
-let g:solarized_termcolors=256  " 256 colors for solarized plugin
-set background=dark             " I feel more comfortable in black layout
-colorscheme solarized           " Select colorscheme from plugin solarized
+"let g:solarized_termcolors=256  " 256 colors for solarized plugin
+colorscheme seoul256            " select colorscheme
 
 " Tabs, space and wrapping
 set expandtab         " spaces ubstead of tabs
