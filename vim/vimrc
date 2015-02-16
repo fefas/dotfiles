@@ -180,7 +180,7 @@ let g:indentLine_char = '|'
 set noshowmode        " let show mode with airline
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
-let g:airline_enable_branch=1
+let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#tabline#buffer_min_count=1
 "let g:airline_section_a = airline#section#create(['mode',' ','branch'])
 "let g:airline_theme='powerlineish'
