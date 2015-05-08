@@ -568,8 +568,6 @@ autocmd! BufWritePost vimrc source %
 
 " Spelling {{{
 
-" turn on the spell checking and set the Spanish language
-nmap <Leader>ss :setlocal spell spelllang=es<CR>
 " turn on the spell checking and set the English language
 nmap <Leader>se :setlocal spell spelllang=en<CR>
 " turn off the spell checking
