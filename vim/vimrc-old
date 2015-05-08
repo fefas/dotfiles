@@ -1,0 +1,256 @@
+"
+" A vimrc to make your vim powerful and as simple as possible.
+"
+" @author:  Felipe Martins (https://github.com/fefas) (felipe@fefaso.com)
+" @source:  https://github.com/Fefas/dotfiles/blob/master/vim/vimrc
+"
+" @see:     https://github.com/joedicastro/dotfiles/blob/master/vim/vimrc
+"
+"
+" @copyright: Copyright (c) 2014-2015 Felipe Martins
+" @license:   MIT License
+"
+" MIT License
+"
+" Permission is hereby granted, free of charge, to any person obtaining
+" a copy of this software and associated documentation files (the
+" "Software"), to deal in the Software without restriction, including
+" without limitation the rights to use, copy, modify, merge, publish,
+" distribute, sublicense, and/or sell copies of the Software, and to
+" permit persons to whom the Software is furnished to do so, subject to
+" the following conditions:
+"
+" The above copyright notice and this permission notice shall be
+" included in all copies or substantial portions of the Software.
+"
+" THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+" EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+" MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+" NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+" LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+" OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+" WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+"
+
+""" NeoBundle - auto-install and setup {{{
+
+set nocompatible                  " be improved (required for NeoBundle)
+
+" NeoBundle auto-install
+let iCanHazNeoBundle=1
+let neobundle_readme=expand($HOME.'/.vim/bundle/neobundle.vim/README.md')
+if !filereadable(neobundle_readme)
+   echo "Installing NeoBundle.."
+   echo ""
+   silent !mkdir -p $HOME/.vim/bundle
+   silent !git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
+   let iCanHazNeoBundle=0
+endif
+
+" skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
+
+if has('vim_starting')
+   if &compatible
+      set nocompatible           " Be iMproved
+   endif
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" if there are uninstalled bundles found on startup, this will conveniently
+" prompt you to install them.
+NeoBundleCheck
+
+
+
+
+
+
+"filetype off                      " required for vundle
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"
+"" Let Vundle manage Vundle
+"Plugin 'gmarik/Vundle.vim'
+"
+"" Setting up plugins
+"Plugin 'Yggdroot/indentLine'              " vertival indent line
+"
+"Plugin 'Lokaltog/powerline-fonts'         " powerline fonts
+"Plugin 'bling/vim-airline'                " a very better statusbar
+"
+"Plugin 'tpope/vim-fugitive'               " admin git
+"Plugin 'airblade/vim-gitgutter'           " show git repository info
+"
+"Plugin 'flazz/vim-colorschemes'           " colorschemes
+"Plugin 'ntpeters/vim-better-whitespace'   " detect whitespace at line end
+"
+"Plugin 'scrooloose/syntastic'             " syntax checking
+"Plugin 'elzr/vim-json'                    " json syntax
+"
+"" Ending Vundle
+"call vundle#end()
+"filetype plugin indent on
+"
+"""" end Vundle }}}
+"
+"""" Vim Setup {{{
+"
+"" General
+"set encoding=utf-8              " setup the encoding to UTF-8
+"scriptencoding utf-8
+"set number                      " show number line
+"set mouse=a                     " enable mouse use in all modes
+"set backspace=2                 " make backspace work normal
+"set title                       " set the terminal title to the current file
+"set laststatus=2                " statusbar always appers (required for airline)
+"set showcmd                     " shows partial commands
+"set ttimeoutlen=0               " toggle between modes almost instantly
+"set lazyredraw                  " only redraws if it is needed
+"set ttyfast                     " better screen redraw
+"set virtualedit=all             " to edit where there is no actual character
+"
+"" Get off cursor keys
+"nnoremap <up> <nop>
+"nnoremap <down> <nop>
+"nnoremap <left> <nop>
+""nnoremap <right> <nop>
+"inoremap <up> <nop>
+""inoremap <down> <nop>
+"inoremap <left> <nop>
+""inoremap <right> <nop>
+"
+"" Mapping and command
+":map <F2> :echo 'Current time is ' . strftime('%c')<CR>
+"
+"" Skip errors when I type :W or something like that
+"command! W   execute "w"
+"command! Q   execute "q"
+"command! WQ  execute "wq"
+"command! Wq  execute "wq"
+"command! WA  execute "wa"
+"command! Wa  execute "wa"
+"command! WQA execute "wqa"
+"command! WQa execute "wqa"
+"command! Wqa execute "wqa"
+"
+"" Syntax, Color and Font
+"syntax on                       " enable syntax coloring
+"set cursorline                  " highlight the line under the cursor
+"set textwidth=80                " text limit (It's not a color setting, I know)
+"set colorcolumn=81              " set a visual text limit column
+"set t_Co=256                    " 256 colors for the terminal
+"colorscheme seoul256            " select colorscheme
+"
+"" Tabs, space and wrapping
+"set expandtab         " spaces ubstead of tabs
+"set tabstop=3         " a tab = three spaces
+"set shiftwidth=3      " number of spaces for auto-indent
+"set softtabstop=3     " a soft-tab of four spaces
+"set autoindent        " set on the auto-indent
+"
+"" Sets different indent width for specifics files type
+"filetype plugin indent on
+"au BufNewFile,BufRead *.html  setlocal softtabstop=2 shiftwidth=2 tabstop=2 autoindent
+"au BufNewFile,BufRead *.volt  setlocal softtabstop=2 shiftwidth=2 tabstop=2 autoindent
+"au BufNewFile,BufRead *.css   setlocal softtabstop=2 shiftwidth=2 tabstop=2 autoindent
+"au BufNewFile,BufRead *.lessc setlocal softtabstop=2 shiftwidth=2 tabstop=2 autoindent
+"
+"" Wildmenu
+"set wildmenu
+"set wildmode=list:longest,full
+"set wildignore+=*.sw?                            " Vim swap files
+"set wildignore+=*.bak,*.?~,*.??~,*.???~,*.~      " Backup files
+"set wildignore+=*.pyc                            " Python byte code
+"
+"" History and permanent undo levels
+"set history=1000
+"set undofile
+"set undoreload=1000
+"
+"" Make a dir if no exists
+"function! MakeDirIfNoExists(path)
+"    if !isdirectory(expand(a:path))
+"        call mkdir(expand(a:path), "p")
+"    endif
+"endfunction
+"
+"" Backups
+"set backup
+"set noswapfile
+"set backupdir=$HOME/.vim/tmp/backup/
+"set undodir=$HOME/.vim/tmp/undo/
+"set directory=$HOME/.vim/tmp/swap/
+"set viminfo+=n$HOME/.vim/tmp/viminfo
+"
+"" Make this dirs if no exists previously
+"silent! call MakeDirIfNoExists(&undodir)
+"silent! call MakeDirIfNoExists(&backupdir)
+"silent! call MakeDirIfNoExists(&directory)
+"
+"" Searching
+"set incsearch                   " incremental searching
+"set showmatch                   " show pairs match
+"set hlsearch                    " highlight search results
+"set smartcase                   " smart case ignore
+"set ignorecase                  " ignore case letters
+"
+"" Cut/Paste to/from the clipboard
+"map <Leader>y "*y
+"map <Leader>p "*p
+"
+"" }}}
+"
+"""" end Vim Setup }}}
+"
+"""" Plugins {{{
+"
+"" Indent Line
+"let g:indentLine_char = '|'
+"
+"" Airline
+"set noshowmode        " let show mode with airline
+"let g:airline_powerline_fonts=1
+"let g:airline#extensions#tabline#enabled=1
+"let g:airline#extensions#branch#enabled=1
+"let g:airline#extensions#tabline#buffer_min_count=1
+""let g:airline_section_a = airline#section#create(['mode',' ','branch'])
+""let g:airline_theme='powerlineish'
+""let g:airline_detect_whitespace = 1
+""let g:airline#extensions#hunks#non_zero_only = 1
+""let g:airline#extensions#tabline#fnamemod = ':t'
+"
+"" Gitgutter
+"let g:gitgutter_sign_column_always=1
+"let g:gitgutter_realtime=0
+"let g:gitgutter_eager=0
+"let g:gitgutter_max_signs=99999
+"highlight clear SignColumn
+"
+"" Better whitespace
+"highlight ExtraWhitespace ctermbg=196;
+"
+"" Syntastic
+"let g:syntastic_aggregate_errors=1
+"
+"" HTML5
+""let g:html5_event_handler_attributes_complete = 0
+""let g:html5_rdfa_attributes_complete = 0
+""let g:html5_microdata_attributes_complete = 0
+""let g:html5_aria_attributes_complete = 0
+"
+"""" end Plugins }}}
