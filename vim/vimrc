@@ -55,6 +55,7 @@ Plugin 'ntpeters/vim-better-whitespace'   " detect whitespace at line end
 Plugin 'scrooloose/syntastic'             " syntax checking
 Plugin 'etaoins/vim-volt-syntax'          " volt syntax
 Plugin 'groenewege/vim-less'              " less syntax
+Plugin 'elzr/vim-json'
 
 " Ending Vundle
 call vundle#end()
