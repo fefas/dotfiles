@@ -98,6 +98,8 @@ NeoBundle 'kopischke/unite-spell-suggest'
 " Improved terminal version of molokai, almost identical to the GUI one
 NeoBundle 'joedicastro/vim-molokai256'
 
+NeoBundle 'flazz/vim-colorschemes'
+
 NeoBundle 'tomasr/molokai'
 NeoBundleLazy 'sjl/badwolf', { 'autoload' :
         \ { 'unite_sources' : 'colorscheme', }}
@@ -348,6 +350,7 @@ set ttimeoutlen=0               " toggle between modes almost instantly
 set backspace=indent,eol,start  " defines the backspace key behavior
 set virtualedit=all             " to edit where there is no actual character
 set more                        " to show pages using `more` in command outpouts
+set number                      " show line number
 
 " }}}
 
@@ -411,11 +414,17 @@ set wildignore+=*.stats                          " Pylint stats
 
 " Tabs, space and wrapping {{{
 
+filetype plugin indent on      " enable indent size for file type
+
 set expandtab                  " spaces instead of tabs
-set tabstop=4                  " a tab = four spaces
-set shiftwidth=4               " number of spaces for auto-indent
-set softtabstop=4              " a soft-tab of four spaces
+set tabstop=3                  " a tab = four spaces
+set shiftwidth=3               " number of spaces for auto-indent
+set softtabstop=3              " a soft-tab of four spaces
 set autoindent                 " set on the auto-indent
+
+au FileType php  setl sw=4 sts=4 et
+au FileType html setl sw=3 sts=3 et
+au FileType css  setl sw=3 sts=3 et
 
 " set formatoptions=qrn1ct
 set textwidth=80
@@ -462,22 +471,28 @@ inoremap <right> <nop>
 
 " }}}
 
+" Enabling mouse actions {{{
+
+set mouse=a
+
+" }}}
+
 " Colorscheme {{{
 
 syntax enable                  " enable the syntax highlight
 set background=dark            " set a dark background
 set t_Co=256                   " 256 colors for the terminal
 if has('gui_running')
-    colorscheme molokai
+    colorscheme seoul
 else
-    colorscheme molokai256
+    colorscheme seoul256
 endif
 
 " }}}
 
 " Font {{{
 
-set guifont=Dejavu\ Sans\ Mono\ for\ Powerline\ 11
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 
 " }}}
 
@@ -1909,5 +1924,3 @@ if filereadable(s:vimcustomfile)
 endif
 
 " }}}
-
-" vim:foldmethod=marker
