@@ -1,6 +1,11 @@
-##
+# ------------------------------------------------------------------------------
+#
+# @author Felipe Martins (felipe@fefaso.xyz)
+#
 # This files helps to configurate bash style on cloud servers. Just include this
-# file on the `.bashrc`.
+# file on the `.bashrc` by using `source` command.
+#
+# ------------------------------------------------------------------------------
 
 ##
 # Colors
