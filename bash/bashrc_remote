@@ -1,7 +1,8 @@
-# ------------------------------------------------------------------------------
-# Este arquivo deve ser inserido no .bashrc com o comando source
+##
+# This files helps to configurate bash style on cloud servers. Just include this
+# file on the `.bashrc`.
 
-# ------------------------------------------------------------------------------
+##
 # Colors
 
 export CLICOLOR=1
