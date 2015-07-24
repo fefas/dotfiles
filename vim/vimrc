@@ -423,8 +423,10 @@ set softtabstop=3              " a soft-tab of four spaces
 set autoindent                 " set on the auto-indent
 
 au FileType php  setl sw=4 sts=4 et
-au FileType html setl sw=3 sts=3 et
-au FileType css  setl sw=3 sts=3 et
+au FileType html setl sw=2 sts=2 et
+au FileType svg  setl sw=2 sts=2 et
+au FileType xml  setl sw=2 sts=2 et
+au FileType css  setl sw=2 sts=2 et
 
 " set formatoptions=qrn1ct
 set textwidth=80
