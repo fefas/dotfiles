@@ -19,6 +19,8 @@
     ps = push
     ch = checkout
     br = branch
+    ht = log --pretty=format:'%C(auto)%h%Creset  %ad  %s%C(auto)%d%Creset [%an]' --graph --date=short
+    htr = log --pretty=format:'%C(auto)%h%Creset  %<(14)%ad  %s%C(auto)%d%Creset [%an]' --graph --date=relative
 
 [core]
 	excludesfile = /Users/fefas/.gitignore_global
