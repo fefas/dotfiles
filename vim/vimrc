@@ -47,7 +47,6 @@ NeoBundle 'Yggdroot/indentLine'
 " Syntax
 NeoBundleLazy 'elzr/vim-json', {'filetypes' : 'json'}
 NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'tpope/vim-cucumber'
 
 " Git
