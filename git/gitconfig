@@ -1,35 +1,36 @@
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
+  clean = git lfs clean %f
+  smudge = git lfs smudge %f
+  required = true
 
 [user]
-	name = Felipe Martins
-	email = me@fefas.net
+  name = Felipe Martins
+  email = me@fefas.net
+  signingkey = B456BB3A6540E71E
 
 [color]
-    ui = true
+  ui = true
 
 [push]
-	default = simple
+  default = simple
 
 [alias]
-    st = status
-    co = commit
-    ps = push
-    ch = checkout
-    br = branch
-    ht = log --pretty=format:'%C(auto)%h%Creset  %ad  %s%C(auto)%d%Creset [%an]' --graph --date=short
-    htr = log --pretty=format:'%C(auto)%h%Creset  %<(14)%ad  %s%C(auto)%d%Creset [%an]' --graph --date=relative
+  st = status
+  co = commit
+  ps = push
+  ch = checkout
+  br = branch
+  ht = log --pretty=format:'%C(auto)%h%Creset  %ad  %s%C(auto)%d%Creset [%an]' --graph --date=short
+  htr = log --pretty=format:'%C(auto)%h%Creset  %<(14)%ad  %s%C(auto)%d%Creset [%an]' --graph --date=relative
 
 [core]
-	excludesfile = /Users/fefas/.gitignore_global
-	editor = vim
+  excludesfile = /Users/fefas/.gitignore_global
+  editor = vim
 
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
