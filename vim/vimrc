@@ -127,21 +127,16 @@ set colorcolumn=81
 filetype plugin indent on      " enable indent size for file type
 
 set expandtab                  " spaces instead of tabs
-set tabstop=3                  " a tab = four spaces
-set shiftwidth=3               " number of spaces for auto-indent
-set softtabstop=3              " a soft-tab of four spaces
+set tabstop=2                  " a tab = two spaces
+set shiftwidth=2               " number of spaces for auto-indent
+set softtabstop=2              " a soft-tab of four spaces
 set autoindent                 " set on the auto-indent
 set textwidth=80
 
 au FileType php setl sw=4 sts=4 et
-au FileType html setl sw=2 sts=2 et
-au FileType twig setl sw=2 sts=2 et
-au FileType svg setl sw=2 sts=2 et
-au FileType xml setl sw=2 sts=2 et
-au FileType css setl sw=2 sts=2 et
-au FileType scss setl sw=2 sts=2 et
-au FileType sass setl sw=2 sts=2 et
-au FileType cucumber setl sw=2 sts=2 et
+au FileType python setl sw=4 sts=4 et
+au FileType c setl sw=4 sts=4 et
+au FileType cpp setl sw=4 sts=4 et
 
 " }}}
 
