@@ -40,7 +40,6 @@ NeoBundle 'Shougo/neobundle.vim'
 
 " Layout
 NeoBundle 'bling/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'Yggdroot/indentLine'
