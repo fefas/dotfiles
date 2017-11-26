@@ -37,6 +37,12 @@ NeoBundle 'Shougo/neobundle.vim'
 
 " plugins install {{{
 
+" Search
+NeoBundle 'scrooloose/nerdtree'
+
+" Comment
+NeoBundle 'scrooloose/nerdcommenter'
+
 " Layout
 NeoBundle 'bling/vim-airline'
 NeoBundle 'flazz/vim-colorschemes'
@@ -47,6 +53,7 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundleLazy 'elzr/vim-json', {'filetypes' : 'json'}
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'tpope/vim-cucumber'
+NeoBundle 'ekalinin/Dockerfile.vim'
 
 " Git
 NeoBundle 'airblade/vim-gitgutter'
@@ -100,10 +107,9 @@ set hidden                      " hide the inactive buffers
 set number                      " show line number
 set cursorline                  " highlight the line under the cursor
 set virtualedit=all             " to edit where there is no actual character
-set scrolloff=16                " see always 16 lines around the cursor
 set backspace=indent,eol,start  " defines the backspace key behavior
 
-set mouse=a                     " enable mouse events
+"set mouse=a                     " enable mouse events
 set nomousehide                 " don't hide cursor mouse while typing
 
 set ttyfast                     " better screen redraw
@@ -114,8 +120,11 @@ set ttimeoutlen=0               " toggle between modes almost instantly
 syntax enable                  " enable the syntax highlight
 set background=dark            " set a dark background
 set t_Co=256                   " 256 colors for the terminal
-colorscheme seoul256
+colorscheme bubblegum-256-dark
 set colorcolumn=81
+
+autocmd BufNewFile,BufRead *.ts set syntax=javascript
+autocmd BufNewFile,BufRead Dockerfile.* set syntax=dockerfile
 
 " }}}
 
@@ -134,6 +143,10 @@ au FileType php setl sw=4 sts=4 et
 au FileType python setl sw=4 sts=4 et
 au FileType c setl sw=4 sts=4 et
 au FileType cpp setl sw=4 sts=4 et
+au FileType json setl sw=4 sts=4 et
+au FileType dockerfile setl sw=4 sts=4 et
+au FileType yaml setl sw=2 sts=2 et
+au FileType sh setl sw=4 sts=4 et
 
 " }}}
 
@@ -218,8 +231,9 @@ let g:vim_json_syntax_conceal=0
 " indent line {{{
 
 let g:indentLine_enabled=1
-let g:indentLine_char='▸'
+let g:indentLine_char='¦'
 let g:indentLine_noConcealCursor=2
+let g:indentLine_color_term = 239
 
 " }}}
 
