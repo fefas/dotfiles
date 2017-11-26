@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-dotfilesBaseDir="$PWD/$(dirname "$0")"
-
-cd $HOME && ln -s -f "$dotfilesBaseDir/vim/vimrc" .vimrc
-cd $HOME && ln -s -f "$dotfilesBaseDir/git/gitconfig" .gitconfig
-cd $HOME && ln -s -f "$dotfilesBaseDir/git/gitignore_global" .gitignore_global
