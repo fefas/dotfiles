@@ -13,12 +13,15 @@
 [push]
   default = simple
 
+[pager]
+	branch = false
+
 [alias]
   st = status
   ci = commit
   ps = push
   co = checkout
-  br = branch
+  br = branch -v
   di = diff
   ds = diff --staged
   ht = log --pretty=format:'%C(auto)%h%Creset  %ad  %s%C(auto)%d%Creset [%an]' --graph --date=short
