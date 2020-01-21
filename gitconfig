@@ -22,6 +22,7 @@
   ps = push
   co = checkout
   br = branch -v
+  br-prune = git remote prune origin && git br | grep '[gone]' | awk '{print $1}' | xargs -r git br -d
   di = diff
   ds = diff --staged
   ht = log --pretty=format:'%C(auto)%h%Creset  %ad  %s%C(auto)%d%Creset [%an]' --graph --date=short
