@@ -23,7 +23,9 @@
   co = checkout
   br = branch -v
   di = diff
+  dw = diff --word-diff=color --unified=1
   ds = diff --staged
+  dsw = diff --staged --word-diff=color --unified=1
   ht = log --pretty=format:'%C(auto)%h%Creset  %ad  %s%C(auto)%d%Creset [%an]' --graph --date=short
   htr = log --pretty=format:'%C(auto)%h%Creset  %<(14)%ad  %s%C(auto)%d%Creset [%an]' --graph --date=relative
 
