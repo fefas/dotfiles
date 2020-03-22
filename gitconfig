@@ -4,8 +4,8 @@
   required = true
 
 [user]
-	name = Felipe Martins
-	email = me@fefas.net
+  name = Felipe Martins
+  email = coding@fefas.dev
 
 [color]
   ui = true
@@ -14,7 +14,7 @@
   default = simple
 
 [pager]
-	branch = false
+  branch = false
 
 [alias]
   st = status
@@ -30,5 +30,5 @@
   htr = log --pretty=format:'%C(auto)%h%Creset  %<(14)%ad  %s%C(auto)%d%Creset [%an]' --graph --date=relative
 
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
   editor = vim
