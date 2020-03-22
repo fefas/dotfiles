@@ -1,156 +1,117 @@
-"
-"                       __   _(_)_ __ ___  _ __ ___
-"                       \ \ / / | '_ ` _ \| '__/ __|
-"                        \ V /| | | | | | | | | (__
-"                       (_)_/ |_|_| |_| |_|_|  \___|
-"
 " Author: Felipe Martins https://blog.fefas.net
 "
-" Reference: joedicastro https://github.com/joedicastro/dotfiles/tree/master/vim
+" Reference: https://github.com/joedicastro/dotfiles/tree/master/vim
 
-" neobundle {{{
+set nocompatible " No to the total compatibility with the ancient vi
 
-set nocompatible     " no to the total compatibility with the ancient vi
+" Dein {{{
 
-" neobundle auto-installation and setup {{{
-
-let iCanHazNeoBundle=1
-let neobundle_readme=expand($HOME.'/.vim/bundle/neobundle.vim/README.md')
-if !filereadable(neobundle_readme)
-  echo "Installing NeoBundle.."
-  echo ""
-  silent !mkdir -p $HOME/.vim/bundle
-  silent !git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim
-  let iCanHazNeoBundle=0
+" Auto installing Dein
+let iCanHazDein=1
+let dein_readme = expand('~/.vim/dein/repos/github.com/Shougo/dein.vim/README.md')
+if !filereadable(dein_readme)
+    echo "Installing Dein..."
+    echo ""
+    silent !mkdir -p ~/.vim/dein
+    silent !git clone https://github.com/Shougo/dein.vim ~/.vim/dein/repos/github.com/Shougo/dein.vim
+    let iCanHazDein=0
 endif
 
-" Call NeoBundle
+" Call Dein
 if has('vim_starting')
-  set rtp+=$HOME/.vim/bundle/neobundle.vim/
+    set rtp+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 endif
-call neobundle#begin(expand($HOME.'/.vim/bundle/'))
+call dein#begin(expand('~/.vim/dein'))
 
-" it is better if NeoBundle rules NeoBundle (needed!)
-NeoBundle 'Shougo/neobundle.vim'
+" plugins {{{
 
-" }}}
+call dein#add('Shougo/dein.vim') " is better if Dein rules Dein (needed!)
 
-" plugins install {{{
+call dein#add('joedicastro/vim-molokai256')
+call dein#add('Yggdroot/indentLine')
 
-" Search
-NeoBundle 'scrooloose/nerdtree'
+call dein#add('tpope/vim-commentary')
+call dein#add('Raimondi/delimitMate')
+call dein#add('ntpeters/vim-better-whitespace')
 
-" Comment
-NeoBundle 'scrooloose/nerdcommenter'
+call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
 
-" Layout
-NeoBundle 'bling/vim-airline'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'ntpeters/vim-better-whitespace'
-NeoBundle 'Yggdroot/indentLine'
+call dein#add('airblade/vim-gitgutter')
+call dein#add('tpope/vim-fugitive')
 
-" Syntax
-NeoBundleLazy 'elzr/vim-json', {'filetypes' : 'json'}
-NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'tpope/vim-cucumber'
-NeoBundle 'ekalinin/Dockerfile.vim'
-
-" Git
-NeoBundle 'airblade/vim-gitgutter'
+call dein#add('elzr/vim-json', {'on_ft' : 'json'})
+call dein#add('scrooloose/syntastic')
 
 " }}}
 
-call neobundle#end()
+call dein#end()
 
-" auto install the plugins {{{
 
+" Auto install the Plugins
 " First-time plugins installation
-if iCanHazNeoBundle == 0
-  echo "Installing Bundles, please ignore key map error messages"
-  echo ""
-  set nomore
-  NeoBundleInstall
+if iCanHazDein == 0
+    echo "Installing Bundles, please ignore key map error messages"
+    echo ""
+    set nomore
+    call dein#install()
 endif
-
-" Check if all of the plugins are already installed, in other case ask if we
-" want to install them (useful to add plugins in the .vimrc)
-NeoBundleCheck
+if  dein#check_install()
+    call dein#install()
+endif
 
 " }}}
 
-" }}} neobundle
-
-" functions {{{
-
-" make a dir if no exists {{{
+" Make a dir if no exists {{{
 
 function! MakeDirIfNoExists(path)
-  if !isdirectory(expand(a:path))
-    call mkdir(expand(a:path), "p")
-  endif
+    if !isdirectory(expand(a:path))
+        call mkdir(expand(a:path), "p")
+    endif
 endfunction
 
 " }}}
 
-" }}} functions
+" <Leader> & <LocalLeader> mapping {{{
 
-" vim config {{{
+let mapleader=','
+let maplocalleader= ' '
+
+" }}}
+
+" Basic options {{{
 
 scriptencoding utf-8
 set encoding=utf-8              " setup the encoding to UTF-8
-set laststatus=2                " status line always visible
-set showcmd                     " shows partial commands
-set ruler                       " sets a permanent rule
-set title                       " set the terminal title to the current file
-set hidden                      " hide the inactive buffers
-
-set number                      " show line number
+set ls=2                        " status line always visible
+set go-=T                       " hide the toolbar
+set go-=m                       " hide the menu
+set visualbell                  " turn on the visual bell
 set cursorline                  " highlight the line under the cursor
-set virtualedit=all             " to edit where there is no actual character
-set backspace=indent,eol,start  " defines the backspace key behavior
-
-"set mouse=a                     " enable mouse events
-set nomousehide                 " don't hide cursor mouse while typing
-
+set fillchars+=vert:│           " better looking for windows separator
 set ttyfast                     " better screen redraw
+set title                       " set the terminal title to the current file
+set showcmd                     " shows partial commands
+set hidden                      " hide the inactive buffers
+set ruler                       " sets a permanent rule
+set lazyredraw                  " only redraws if it is needed
+set autoread                    " update a open file edited outside of Vim
 set ttimeoutlen=0               " toggle between modes almost instantly
-
-" appearance {{{
-
-syntax enable                  " enable the syntax highlight
-set background=dark            " set a dark background
-set t_Co=256                   " 256 colors for the terminal
-colorscheme bubblegum-256-dark
-set colorcolumn=81
-
-autocmd BufNewFile,BufRead *.ts set syntax=javascript
-autocmd BufNewFile,BufRead Dockerfile.* set syntax=dockerfile
+set backspace=indent,eol,start  " defines the backspace key behavior
+set virtualedit=all             " to edit where there is no actual character
+set more                        " to show pages using `more` in command outpouts
 
 " }}}
 
-" tabs, space and wrapping {{{
+" History and permanent undo levels {{{
 
-filetype plugin indent on      " enable indent size for file type
-
-set expandtab                  " spaces instead of tabs
-set tabstop=2                  " a tab = two spaces
-set shiftwidth=2               " number of spaces for auto-indent
-set softtabstop=2              " a soft-tab of four spaces
-set autoindent                 " set on the auto-indent
-set textwidth=80
-
-au FileType php setl sw=4 sts=4 et
-au FileType python setl sw=4 sts=4 et
-au FileType c setl sw=4 sts=4 et
-au FileType cpp setl sw=4 sts=4 et
-au FileType json setl sw=4 sts=4 et
-au FileType dockerfile setl sw=4 sts=4 et
-au FileType yaml setl sw=2 sts=2 et
-au FileType sh setl sw=4 sts=4 et
+set history=500
+set undofile
+set undoreload=500
 
 " }}}
 
-" backup {{{
+" Backups {{{
 
 set backup
 set noswapfile
@@ -159,13 +120,14 @@ set undodir=$HOME/.vim/tmp/undo/
 set directory=$HOME/.vim/tmp/swap/
 set viminfo+=n$HOME/.vim/tmp/viminfo
 
+" make this dirs if no exists previously
 silent! call MakeDirIfNoExists(&undodir)
 silent! call MakeDirIfNoExists(&backupdir)
 silent! call MakeDirIfNoExists(&directory)
 
 " }}}
 
-" get off the cursor keys {{{
+" Ok, a vim for braves, get off the cursor keys {{{
 
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -178,15 +140,17 @@ inoremap <right> <nop>
 
 " }}}
 
-" fast window split and moves {{{
+" Tabs, space and wrapping {{{
 
-nnoremap <Leader>v <C-w>v
-nnoremap <Leader>s <C-w>s
+set expandtab                  " spaces instead of tabs
+set tabstop=4                  " a tab = four spaces
+set shiftwidth=4               " number of spaces for auto-indent
+set softtabstop=4              " a soft-tab of four spaces
+set autoindent                 " set on the auto-indent
+set textwidth=80
+set colorcolumn=81
 
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+au FileType yaml setl sw=2 sts=2 et
 
 " }}}
 
@@ -197,28 +161,96 @@ map <Leader>p "*p
 
 " }}}
 
-" }}} vim config
+" Colorscheme {{{
 
-" plugins setup {{{
+syntax enable                  " enable the syntax highlight
+set background=dark            " set a dark background
+set t_Co=256                   " 256 colors for the terminal
+colorscheme molokai256
+
+" }}}
+
+" New windows {{{
+
+nnoremap <Leader>v <C-w>v
+nnoremap <Leader>s <C-w>s
+
+" }}}
+
+" Fast window moves {{{
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" }}}
+
+" Toggle line numbers {{{
+
+set number
+set norelativenumber
+
+nnoremap <silent><Leader>l :call ToggleRelativeAbsoluteNumber()<CR>
+function! ToggleRelativeAbsoluteNumber()
+    if &number && &relativenumber
+        set number
+        set norelativenumber
+    elseif &number && !&relativenumber
+        set number
+        set relativenumber
+    endif
+endfunction
+
+" }}}
+
+" Show hidden chars {{{
+
+nmap <Leader>eh :set list!<CR>
+set listchars=tab:→\ ,eol:↵,trail:·,extends:↷,precedes:↶
+
+" }}}
+
+" dein {{{
+
+let g:dein#enable_notification=1
+let g:dein#notification_time=5
+
+" }}}
+
+" indent line {{{
+
+let g:indentLine_enabled=1
+let g:indentLine_char='|'
+let g:indentLine_noConcealCursor=2
+let g:indentLine_color_term = 239
+
+" }}}
+
+" commentary {{{
+
+nmap <Leader>c <Plug>CommentaryLine
+xmap <Leader>c <Plug>Commentary
+
+au FileType php setlocal commentstring=//%s
+
+" }}}
+
+" delimitmate {{{
+
+let delimitMate_expand_space = 1
+
+" }}}
 
 " airline {{{
 
 set noshowmode
 
-let g:airline_powerline_fonts=1
-let g:airline#extensions#branch#enabled=1
-let g:airline#extensions#whitespace#enabled=1
-let g:airline#extensions#hunks#non_zero_only=1
-let g:airline#extensions#tabline#enabled=1
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+let g:airline_theme='powerlineish'
+let g:airline_powerline_fonts=0
+let g:airline_section_x=''
 let g:airline_section_y=''
-
-" }}}
-
-" better whitespace {{{
-
-highlight ExtraWhitespace ctermbg=red
+let g:airline_section_z = airline#section#create(['%l:%c'])
 
 " }}}
 
@@ -227,14 +259,3 @@ highlight ExtraWhitespace ctermbg=red
 let g:vim_json_syntax_conceal=0
 
 " }}}
-
-" indent line {{{
-
-let g:indentLine_enabled=1
-let g:indentLine_char='¦'
-let g:indentLine_noConcealCursor=2
-let g:indentLine_color_term = 239
-
-" }}}
-
-" }}} plugins setup
