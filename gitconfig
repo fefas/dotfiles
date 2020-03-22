@@ -22,6 +22,7 @@
   ps = push
   co = checkout
   br = branch -v
+  br-prune = git remote prune origin && git br | grep '[gone]' | awk '{print $1}' | xargs -r git br -d
   di = diff
   dw = diff --word-diff=color --unified=1
   ds = diff --staged
