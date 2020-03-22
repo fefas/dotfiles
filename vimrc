@@ -233,6 +233,7 @@ nmap <Leader>c <Plug>CommentaryLine
 xmap <Leader>c <Plug>Commentary
 
 au FileType php setlocal commentstring=//%s
+au FileType yaml setlocal commentstring=#%s
 
 " }}}
 
