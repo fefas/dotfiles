@@ -1,0 +1,14 @@
+- name: Check Oh-My-Zsh
+  stat:
+    path: '{{ ansible_env.HOME }}/.oh-my-zsh'
+  register: ohMyZsh
+
+- name: Install OhMyZsh
+  shell: bash -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  when: not ohMyZsh.stat.exists
+
+- name: Install OhMyZsh Highlight plugin
+  git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: "{{ ohMyZsh.stat.path }}/plugins/zsh-syntax-highlighting"
+    version: master
