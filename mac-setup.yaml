@@ -1,0 +1,55 @@
+dotfiles:
+  - src: gitconfig
+    dest: .gitconfig
+  - src: gitignore
+    dest: .gitignore_global
+  - src: tmux.conf
+    dest: .tmux.conf
+  - src: vimrc
+    dest: .vimrc
+  - src: zshrc
+    dest: .zshrc
+
+brew:
+  - name: cmake
+  - name: composer
+  - name: curl
+  - name: docker
+  - name: docker-compose
+  - name: docker-machine
+  - name: gcc
+  - name: git
+  - name: jq
+  - name: openssh
+  - name: node
+  - name: php@7.4
+  - name: python3
+  - name: ruby
+  - name: tmux
+  - name: tree
+  - name: vim
+  - name: watch
+  - name: wget
+  - name: zsh
+
+brewCask:
+  - 1password
+  - atom
+  - docker
+  - dropbox
+  - firefox
+  - gimp
+  - google-chrome
+  - iterm2
+  - phpstorm
+  - rescuetime
+  - slack
+  - spotify
+  - steam
+  - telegram
+  - whatsapp
+
+customTasks:
+  tasks:
+  - debug:
+      msg: bla
