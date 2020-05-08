@@ -39,6 +39,7 @@ brewCask:
   - dropbox
   - firefox
   - gimp
+  - goodsync
   - google-chrome
   - iterm2
   - phpstorm
@@ -48,6 +49,7 @@ brewCask:
   - steam
   - telegram
   - whatsapp
+  - icq
 
 customTasks:
   tasks:
