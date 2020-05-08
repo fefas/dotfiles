@@ -19,6 +19,7 @@ brew:
   - name: docker-machine
   - name: gcc
   - name: git
+  - name: goodsync
   - name: jq
   - name: openssh
   - name: node
@@ -48,6 +49,7 @@ brewCask:
   - steam
   - telegram
   - whatsapp
+  - icq
 
 customTasks:
   tasks:
