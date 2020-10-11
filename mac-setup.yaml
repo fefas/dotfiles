@@ -39,8 +39,8 @@ brewCask:
   - dropbox
   - firefox
   - gimp
-  - goodsync
   - google-chrome
+  - icq
   - iterm2
   - phpstorm
   - rescuetime
@@ -49,7 +49,6 @@ brewCask:
   - steam
   - telegram
   - whatsapp
-  - icq
 
 customTasks:
   tasks:
