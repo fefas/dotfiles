@@ -19,6 +19,10 @@ brew:
   - name: docker-machine
   - name: gcc
   - name: git
+<<<<<<< HEAD
+=======
+  - name: goodsync
+>>>>>>> f1fbd5824e6227daebe8f53d83c33c10e616f601
   - name: jq
   - name: openssh
   - name: node
@@ -40,7 +44,10 @@ brewCask:
   - firefox
   - gimp
   - google-chrome
+<<<<<<< HEAD
   - icq
+=======
+>>>>>>> f1fbd5824e6227daebe8f53d83c33c10e616f601
   - iterm2
   - phpstorm
   - rescuetime
@@ -49,6 +56,10 @@ brewCask:
   - steam
   - telegram
   - whatsapp
+<<<<<<< HEAD
+=======
+  - icq
+>>>>>>> f1fbd5824e6227daebe8f53d83c33c10e616f601
 
 customTasks:
   tasks:
