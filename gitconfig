@@ -19,6 +19,7 @@
 [alias]
   st = status
   ci = commit
+  cia = commit --amend --no-edit
   ps = push
   co = checkout
   br = branch -v
@@ -32,3 +33,6 @@
 [core]
   excludesfile = ~/.gitignore_global
   editor = vim
+
+[pull]
+  rebase = false

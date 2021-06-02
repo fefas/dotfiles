@@ -151,6 +151,7 @@ set textwidth=80
 set colorcolumn=81
 
 au FileType yaml setl sw=2 sts=2 et
+au FileType cucumber setl sw=2 sts=2 et
 
 " }}}
 
