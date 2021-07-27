@@ -7,6 +7,9 @@
   name = Felipe Martins
   email = 6557756+fefas@users.noreply.github.com
 
+[init]
+  defaultBranch = main
+
 [color]
   ui = true
 
