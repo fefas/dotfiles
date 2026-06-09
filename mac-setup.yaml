@@ -12,40 +12,25 @@ dotfiles:
 
 brew:
   - name: cmake
-  - name: composer
   - name: curl
-  - name: docker
-  - name: docker-compose
-  - name: docker-machine
   - name: gcc
   - name: git
   - name: jq
-  - name: openssh
-  - name: node
-  - name: php@7.4
-  - name: python3
-  - name: ruby
   - name: tmux
-  - name: tree
   - name: vim
   - name: watch
   - name: wget
   - name: zsh
+  - name: zsh-syntax-highlighting
 
 brewCask:
   - 1password
-  - atom
-  - docker
+  - docker-desktop
   - dropbox
-  - firefox
-  - gimp
-  - google-chrome
-  - icq
   - iterm2
-  - phpstorm
-  - rescuetime
-  - slack
   - spotify
   - steam
   - telegram
   - whatsapp
+  - zen
+
